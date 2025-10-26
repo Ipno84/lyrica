@@ -1,16 +1,14 @@
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RouteNames } from "./constants";
 
-export type RootStackParamList = {
-  LyricDetail: undefined;
-  LyricsList: undefined;
+type LyricDetailNavigationProp = {
+  id: string;
 };
 
-export type LyricDetailNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  "LyricDetail"
->;
+export type RootStackParamList = {
+  [RouteNames.LyricDetail]: LyricDetailNavigationProp;
+  [RouteNames.LyricsList]: undefined;
+  [RouteNames.Settings]: undefined;
+};
 
-export type LyricsListNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  "LyricsList"
->;
+export type RootNavigationProp = NativeStackNavigationProp<RootStackParamList>;

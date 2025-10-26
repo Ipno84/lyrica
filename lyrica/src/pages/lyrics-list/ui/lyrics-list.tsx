@@ -1,15 +1,15 @@
 import { Container } from "@/components/container";
-import { LyricDetailNavigationProp } from "@/entities/routes";
+import { RootNavigationProp, RouteNames } from "@/entities/routes";
 import { useNavigation } from "@react-navigation/native";
 import { useCallback } from "react";
 import { Text } from "react-native";
 import { Button } from "react-native-paper";
 
 export const LyricsList: React.FC = () => {
-  const { navigate } = useNavigation<LyricDetailNavigationProp>();
+  const { navigate } = useNavigation<RootNavigationProp>();
 
   const navigateToDetail = useCallback(() => {
-    navigate("LyricDetail");
+    navigate(RouteNames.LyricDetail, { id: "example-id" });
   }, [navigate]);
 
   return (
