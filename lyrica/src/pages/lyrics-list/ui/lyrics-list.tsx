@@ -1,5 +1,5 @@
 import { Container } from "@/components/container";
-import { RootNavigationProp, RouteNames } from "@/entities/routes";
+import { type RootNavigationProp, RouteNames } from "@/entities/routes/model";
 import { useNavigation } from "@react-navigation/native";
 import { useCallback } from "react";
 import { Text } from "react-native";

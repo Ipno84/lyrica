@@ -1,14 +1,16 @@
 import { useStore } from "zustand";
 import { createStore } from "zustand/vanilla";
 import { type SongsStore } from "../model";
-import { devtools, persist } from "zustand/middleware";
+import { devtools, persist, createJSONStorage } from "zustand/middleware";
+import { adapter } from "@/entities/storage";
 
 export const getDefaultState = (): Pick<
   SongsStore,
-  "songs" | "isLoadingSongs"
+  "songs" | "isLoadingSongs" | "hasHydrated"
 > => ({
   songs: [],
   isLoadingSongs: false,
+  hasHydrated: false,
 });
 
 const storeCreator = devtools<SongsStore>((set) => ({
@@ -33,10 +35,30 @@ const storeCreator = devtools<SongsStore>((set) => ({
       { type: "songs/setIsLoadingSongs", isLoadingSongs }
     );
   },
+  setHasHydrated: (hasHydrated) => {
+    set(
+      (state) => ({
+        ...state,
+        hasHydrated,
+      }),
+      false,
+      { type: "songs/setHasHydrated", hasHydrated }
+    );
+  },
 }));
 
 const persistStoreCreator = persist(storeCreator, {
   name: "SongsStore",
+  storage: createJSONStorage<Pick<SongsStore, "songs">>(() => adapter),
+  version: 1,
+  partialize: ({ songs }) => ({ songs }),
+  // TODO: handle future migrations
+  // migrate: async (persisted, version) => {
+  //   if (version < 1) {
+  //     return { userId: null, ...persisted } as any;
+  //   }
+  //   return persisted as any;
+  // },
 });
 
 type Selector<S, R> = (state: S) => R;

@@ -23,6 +23,8 @@ export type Song = {
 export type SongsStore = {
   songs: Song[];
   isLoadingSongs: boolean;
+  hasHydrated: boolean;
   setSongs: (songs: Song[]) => void;
   setIsLoadingSongs: (isLoading: boolean) => void;
+  setHasHydrated: (hasHydrated: boolean) => void;
 };

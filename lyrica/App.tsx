@@ -1,25 +1,22 @@
-import "react-native-gesture-handler";
-import "react-native-reanimated";
-
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text } from "react-native";
+import { PaperProvider } from "react-native-paper";
+import { Navigator } from "@/entities/routes";
+import { QueryProvider } from "@/entities/query";
 import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
-import { PaperProvider } from "react-native-paper";
-import { Navigator } from "@/entities/routes";
 
-const App: React.FC = () => {
+export default function App() {
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <PaperProvider>
-        <StatusBar style="auto" />
-        <Navigator />
-      </PaperProvider>
+      <QueryProvider>
+        <PaperProvider>
+          <StatusBar style="auto" />
+          <Navigator />
+        </PaperProvider>
+      </QueryProvider>
     </SafeAreaProvider>
   );
-};
-
-export default App;
+}

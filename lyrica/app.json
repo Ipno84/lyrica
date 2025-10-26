@@ -2,12 +2,6 @@
   "expo": {
     "name": "Lyrica",
     "slug": "lyrica",
-    "version": "1.0.0",
-    "web": {
-      "bundler": "metro"
-    },
-    "plugins": [
-      "expo-router"
-    ]
+    "version": "1.0.0"
   }
 }
