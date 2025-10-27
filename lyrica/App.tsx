@@ -1,52 +1,32 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { PaperProvider } from "react-native-paper";
+
 import { Navigator } from "@/entities/routes";
 import { QueryProvider } from "@/entities/query";
 import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
-import * as SplashScreen from "expo-splash-screen";
+import { beforeInit, useOnInit } from "@/entities/boostrap";
+import { theme } from "@/features/theme";
+import { SafeArea } from "@/features/safe-area";
 
-SplashScreen.setOptions({
-  fade: true,
-});
-SplashScreen.preventAutoHideAsync();
+beforeInit();
 
 export default function App() {
-  const [appReady, setAppReady] = useState(false);
-  const splashScreenShown = useRef(!appReady);
-
-  useEffect(() => {
-    const appSetup = async () => {
-      try {
-        // TODO: Load Firebase Configuration
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setAppReady(true);
-      }
-    };
-
-    appSetup();
-  }, []);
-
-  useEffect(() => {
-    if (appReady && splashScreenShown.current) {
-      SplashScreen.hide();
-      splashScreenShown.current = false;
-    }
-  }, [appReady]);
+  const appReady = useOnInit();
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <QueryProvider>
-        <PaperProvider>
+        <PaperProvider theme={theme}>
+          <StatusBar style="auto" />
           {appReady ? (
             <>
-              <StatusBar style="auto" />
-              <Navigator />
+              <SafeArea>
+                <Navigator theme={theme} />
+              </SafeArea>
             </>
           ) : null}
         </PaperProvider>

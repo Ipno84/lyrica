@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "897293432297",
+    "project_id": "lyricsreader-23107",
+    "storage_bucket": "lyricsreader-23107.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897293432297:android:ff945be653ffefc6290778",
+        "android_client_info": {
+          "package_name": "com.lyrica"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZMPIo2od_EGVkXMhi8QP6-6ePRan0nMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897293432297:android:99334f416e74f144290778",
+        "android_client_info": {
+          "package_name": "com.lyricsreader"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZMPIo2od_EGVkXMhi8QP6-6ePRan0nMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

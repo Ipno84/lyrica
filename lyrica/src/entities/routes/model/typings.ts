@@ -1,8 +1,9 @@
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RouteNames } from "./constants";
 
-type LyricDetailNavigationProp = {
+export type LyricDetailNavigationProp = {
   id: string;
+  title: string;
 };
 
 export type RootStackParamList = {

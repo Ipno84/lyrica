@@ -14,7 +14,9 @@
     "clean:basic": "npm run clean:watchman && npm run clean:metro && npm run clean:gradle",
     "clean": "npm run clean:basic && npm run clean:node",
     "typecheck": "tsc --noEmit",
-    "pods:install": "cd ios && pod install && cd .."
+    "pods:install": "cd ios && pod install && cd ..",
+    "android:menu": "adb shell input keyevent 82",
+    "devtools": "react-devtools"
   },
   "dependencies": {
     "@react-native-firebase/app": "^23.4.1",
@@ -25,11 +27,13 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "babel-preset-expo": "~54.0.0",
     "expo": "~54.0.20",
+    "expo-dev-client": "~6.0.16",
     "expo-splash-screen": "~31.0.10",
     "expo-status-bar": "~3.0.8",
     "expo-storage": "^54.0.6",
     "react": "19.1.0",
     "react-native": "0.81.5",
+    "react-native-pager-view": "^6.9.1",
     "react-native-paper": "^5.14.5",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",

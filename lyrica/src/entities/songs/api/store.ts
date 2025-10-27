@@ -6,11 +6,12 @@ import { adapter } from "@/entities/storage";
 
 export const getDefaultState = (): Pick<
   SongsStore,
-  "songs" | "isLoadingSongs" | "hasHydrated"
+  "songs" | "isLoadingSongs" | "hasHydrated" | "performedSongs"
 > => ({
   songs: [],
   isLoadingSongs: false,
   hasHydrated: false,
+  performedSongs: [],
 });
 
 const storeCreator = devtools<SongsStore>((set) => ({
@@ -43,6 +44,18 @@ const storeCreator = devtools<SongsStore>((set) => ({
       }),
       false,
       { type: "songs/setHasHydrated", hasHydrated }
+    );
+  },
+  togglePerformedSong: (songId) => {
+    set(
+      (state) => ({
+        ...state,
+        performedSongs: state.performedSongs.includes(songId)
+          ? state.performedSongs.filter((id) => id !== songId)
+          : [...state.performedSongs, songId],
+      }),
+      false,
+      { type: "songs/togglePerformedSong", songId }
     );
   },
 }));

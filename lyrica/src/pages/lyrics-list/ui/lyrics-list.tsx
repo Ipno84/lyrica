@@ -1,23 +1,28 @@
-import { Container } from "@/components/container";
-import { type RootNavigationProp, RouteNames } from "@/entities/routes/model";
-import { useNavigation } from "@react-navigation/native";
-import { useCallback } from "react";
-import { Text } from "react-native";
-import { Button } from "react-native-paper";
+import { useSongsStore } from "@/entities/songs";
+import { useSongs } from "@/entities/songs";
+import { SongListItem } from "@/features/song-list-item";
+import { FlatList } from "react-native";
 
 export const LyricsList: React.FC = () => {
-  const { navigate } = useNavigation<RootNavigationProp>();
+  useSongs();
 
-  const navigateToDetail = useCallback(() => {
-    navigate(RouteNames.LyricDetail, { id: "example-id" });
-  }, [navigate]);
+  const songs = useSongsStore((state) => state.songs);
 
   return (
-    <Container>
-      <Text>LyricsList Page</Text>
-      <Button mode="outlined" onPress={navigateToDetail}>
-        Press me
-      </Button>
-    </Container>
+    <FlatList
+      data={songs}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item, index }) => (
+        <SongListItem
+          index={index}
+          id={item.id}
+          title={item.title}
+          priority={item.priority}
+          effects={item.effects ?? []}
+          verses={item.verses}
+          keys={item.keys}
+        />
+      )}
+    />
   );
 };
