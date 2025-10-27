@@ -9,6 +9,7 @@ export const useOnInit = () => {
     const appSetup = async () => {
       try {
         // Setup here any services needed before app is ready
+        await Promise.resolve();
       } catch (e) {
         console.warn(e);
       } finally {

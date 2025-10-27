@@ -7,5 +7,5 @@ export const Pill: React.FC<PropsWithChildren> = ({ children }) => {
   const theme = useTheme();
   const style = useMemo(() => styles(theme), [theme]);
 
-  return <View style={style.pill}>{children}</View>;
+  return <View style={style.pill} testID="pill">{children}</View>;
 };
