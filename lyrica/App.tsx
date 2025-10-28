@@ -2,15 +2,15 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { PaperProvider } from "react-native-paper";
 
-import { Navigator } from "@/entities/routes";
-import { QueryProvider } from "@/entities/query";
+import { Navigator } from "@/processes/routes";
+import { QueryProvider } from "@/processes/query";
 import {
   SafeAreaProvider,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
-import { beforeInit, useOnInit } from "@/entities/boostrap";
+import { beforeInit, useOnInit } from "@/processes/boostrap";
 import { theme } from "@/features/theme";
-import { SafeArea } from "@/features/safe-area";
+import { SafeArea } from "@/shared/components/safe-area";
 
 beforeInit();
 

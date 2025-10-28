@@ -56,5 +56,27 @@ target 'lyrica' do
       :mac_catalyst_enabled => false,
       :ccache_enabled => ccache_enabled?(podfile_properties),
     )
+
+    installer.pods_project.targets.each do |t|
+      t.build_configurations.each do |cfg|
+        if cfg.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 12.0
+          cfg.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+        end
+        # Consenti non-modular includes (utile con RNFB + React headers)
+        cfg.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      end
+    end
+
+    installer.pods_project.targets
+      .select { |t| t.name =~ /^RNFB(.*)/ } # es. RNFBApp, RNFBFirestore, RNFBAuth, etc.
+      .each do |t|
+        t.build_configurations.each do |cfg|
+          cfg.build_settings['DEFINES_MODULE'] = 'NO'
+          # opzionale ma spesso utile:
+          cfg.build_settings['CLANG_ENABLE_MODULES'] = 'NO'
+          cfg.build_settings['USE_HEADERMAP'] = 'YES'
+        end
+      end
+
   end
 end

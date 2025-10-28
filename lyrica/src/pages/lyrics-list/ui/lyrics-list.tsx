@@ -1,6 +1,6 @@
-import { useSongsStore } from "@/entities/songs";
-import { useSongs } from "@/entities/songs";
-import { SongListItem } from "@/features/song-list-item";
+import { useSongsStore } from "@/entities/song";
+import { useSongs } from "@/entities/song";
+import { SongListItem } from "@/features/song";
 import { FlatList } from "react-native";
 
 export const LyricsList: React.FC = () => {
@@ -12,9 +12,8 @@ export const LyricsList: React.FC = () => {
     <FlatList
       data={songs}
       keyExtractor={(item) => item.id}
-      renderItem={({ item, index }) => (
+      renderItem={({ item }) => (
         <SongListItem
-          index={index}
           id={item.id}
           title={item.title}
           priority={item.priority}
