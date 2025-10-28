@@ -46,7 +46,6 @@ export const PerformedToggler: React.FC<PerformedTogglerProps> = ({ id }) => {
 
 const styles = StyleSheet.create({
   itemLeft: {
-    justifyContent: "center",
-    alignItems: "flex-end",
+    paddingLeft: 12,
   },
 });

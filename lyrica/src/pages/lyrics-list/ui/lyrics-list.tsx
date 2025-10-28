@@ -19,7 +19,7 @@ export const LyricsList: React.FC = () => {
           priority={item.priority}
           effects={item.effects ?? []}
           verses={item.verses}
-          keys={item.keys}
+          keys={item.keys ?? ""}
         />
       )}
     />

@@ -11,7 +11,10 @@ export const useSongs = () => {
   const query = useQuery({
     queryKey: [GET_SONGS_QUERY_KEY],
     queryFn: () => Firestore.getSongs(),
-    select: (data) => data.sort((a: Song, b: Song) => a.priority - b.priority),
+    select: (data) =>
+      data
+        .sort((a: Song, b: Song) => a.priority - b.priority)
+        .map((song: Song & { key: string }) => ({ ...song, keys: song.key })),
   });
 
   useEffect(() => {

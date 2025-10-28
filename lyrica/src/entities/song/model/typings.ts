@@ -2,21 +2,7 @@ export type Song = {
   id: string;
   title: string;
   priority: number;
-  keys?:
-    | undefined
-    | ""
-    | "C"
-    | "C#"
-    | "D"
-    | "D#"
-    | "E"
-    | "F"
-    | "F#"
-    | "G"
-    | "G#"
-    | "A"
-    | "A#"
-    | "B";
+  keys?: string;
   verses: string[];
   effects?: string[];
 };
