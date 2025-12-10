@@ -1,16 +1,17 @@
 import { useCallback, useMemo } from "react";
-import { View, StyleSheet } from "react-native";
-import { Text, useTheme, type MD3Theme } from "react-native-paper";
+import { View } from "react-native";
+import { Text, useTheme } from "react-native-paper";
 import { NavigationIconButton } from "@/shared/components/icon-button";
 import { Pill } from "@/shared/components/pill";
 import type { PagerNavigationProps } from "../model";
 import { useViewPagerContext } from "../api";
+import { themeStyles } from "./styles";
 
 export const PagerNavigation: React.FC<PagerNavigationProps> = ({ total }) => {
   const { page, pagerRef } = useViewPagerContext();
 
   const theme = useTheme();
-  const style = useMemo(() => styles(theme), [theme]);
+  const style = useMemo(() => themeStyles(theme), [theme]);
 
   const goToPrevChunk = useCallback(
     () => pagerRef.current?.setPage(page - 1),
@@ -47,24 +48,3 @@ export const PagerNavigation: React.FC<PagerNavigationProps> = ({ total }) => {
     </View>
   );
 };
-
-const styles = (theme: MD3Theme) =>
-  StyleSheet.create({
-    pagerNavigation: {
-      alignItems: "center",
-      padding: 16,
-      flexDirection: "row",
-      justifyContent: "space-between",
-    },
-    left: {
-      flex: 1,
-    },
-    right: {
-      flex: 1,
-      alignItems: "flex-end",
-    },
-    text: {
-      color: theme.colors.background,
-      fontWeight: "bold",
-    },
-  });

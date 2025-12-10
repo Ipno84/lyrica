@@ -3,8 +3,8 @@ import { View } from "react-native";
 import { useGoToNextSong } from "@/entities/song";
 import { NavigationIconButton } from "@/shared/components/icon-button";
 import type { SongControlProps } from "../model";
-import { StyleSheet } from "react-native";
 import { PerformedToggler } from "@/shared/components/performed-toggler";
+import { styles } from "./styles";
 
 export const SongControl: React.FC<SongControlProps> = ({ id }) => {
   const { onNextPress, nextSong } = useGoToNextSong();
@@ -22,11 +22,3 @@ export const SongControl: React.FC<SongControlProps> = ({ id }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  headerRight: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
-  },
-});

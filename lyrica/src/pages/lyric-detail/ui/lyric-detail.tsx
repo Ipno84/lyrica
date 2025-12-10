@@ -7,7 +7,7 @@ import { VersesPager } from "@/widgets/verses-pager";
 import { SongControl } from "@/features/song";
 import { Container } from "@/shared/components/container";
 import { ViewPagerProvider } from "@/features/pager";
-import { StyleSheet } from "react-native";
+import { styles } from "./styles";
 
 export const LyricDetail: React.FC = () => {
   const { setOptions } = useNavigation<RootNavigationProp>();
@@ -37,10 +37,3 @@ export const LyricDetail: React.FC = () => {
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  emptyText: {
-    fontSize: 32,
-    textAlign: "center",
-  },
-});

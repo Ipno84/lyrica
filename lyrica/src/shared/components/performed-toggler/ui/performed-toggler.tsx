@@ -1,9 +1,10 @@
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { useTheme } from "react-native-paper";
 import type { PerformedTogglerProps } from "../model";
 import { useSongsStore } from "@/entities/song";
 import { useCallback, useMemo } from "react";
 import { NavigationIconButton } from "@/shared/components/icon-button";
+import { styles } from "./styles";
 
 export const PerformedToggler: React.FC<PerformedTogglerProps> = ({ id }) => {
   const theme = useTheme();
@@ -43,9 +44,3 @@ export const PerformedToggler: React.FC<PerformedTogglerProps> = ({ id }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  itemLeft: {
-    paddingLeft: 12,
-  },
-});

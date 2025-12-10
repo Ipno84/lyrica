@@ -1,6 +1,6 @@
 import React, { type PropsWithChildren } from "react";
-import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { styles } from "./styles";
 
 export const SafeArea: React.FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -9,9 +9,3 @@ export const SafeArea: React.FC<PropsWithChildren> = ({ children }) => {
     </SafeAreaView>
   );
 };
-
-export const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-});

@@ -3,7 +3,7 @@ import PagerView, {
   type PagerViewOnPageSelectedEvent,
 } from "react-native-pager-view";
 import { useViewPagerContext } from "../api/use-view-pager-context";
-import { StyleSheet } from "react-native";
+import { styles } from "./styles";
 
 export const Pager: React.FC<PropsWithChildren> = ({ children }) => {
   const { setPage, pagerRef } = useViewPagerContext();
@@ -25,9 +25,3 @@ export const Pager: React.FC<PropsWithChildren> = ({ children }) => {
     </PagerView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
