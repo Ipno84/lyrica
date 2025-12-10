@@ -1,6 +1,7 @@
-import * as SplashScreen from "expo-splash-screen";
+import { setupSplashScreen } from "./setup-splash-screen";
+import { setupKeepAwake } from "./setup-keep-awake";
 
-export const beforeInit = () => {
-  SplashScreen.setOptions({ fade: true });
-  SplashScreen.preventAutoHideAsync();
+export const beforeInit = async () => {
+  setupSplashScreen();
+  await setupKeepAwake();
 };

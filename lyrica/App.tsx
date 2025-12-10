@@ -14,7 +14,7 @@ import { SafeArea } from "@/shared/components/safe-area";
 
 beforeInit();
 
-export default function App() {
+const App: React.FC = () => {
   const appReady = useOnInit();
 
   return (
@@ -33,4 +33,6 @@ export default function App() {
       </QueryProvider>
     </SafeAreaProvider>
   );
-}
+};
+
+export default App;

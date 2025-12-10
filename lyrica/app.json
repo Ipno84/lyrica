@@ -2,6 +2,17 @@
   "expo": {
     "name": "Lyrica",
     "slug": "lyrica",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "icon": "./assets/images/splash-icon.png",
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#232323",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200
+        }
+      ]
+    ]
   }
 }
